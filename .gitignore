@@ -365,3 +365,6 @@ FodyWeavers.xsd
 # Ignore Logs
 MetricsAgentLogs
 MetricsManagerLogs
+
+# Ignore Local DataBase
+*.db
