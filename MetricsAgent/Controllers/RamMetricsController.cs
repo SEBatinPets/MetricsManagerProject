@@ -34,7 +34,7 @@ namespace MetricsAgent.Controllers
             [FromRoute] TimeSpan fromTime,
             [FromRoute] TimeSpan toTime)
         {
-            logger.LogInformation($"Запрос метрик с {fromTime} по {toTime}");
+            logger.LogInformation($"Запрос метрик ОЗУ с {fromTime} по {toTime}");
 
             GetRamMetricsResponse result = new GetRamMetricsResponse
             {
@@ -48,7 +48,7 @@ namespace MetricsAgent.Controllers
                 result.Metrics.Add(mapper.Map<RamMetricDto>(metric));
             }
 
-            logger.LogInformation($"Отдано {result.Metrics.Count}");
+            logger.LogInformation($"Отдано метрик ОЗУ {result.Metrics.Count}");
 
             return Ok(JsonSerializer.Serialize(result));
         }

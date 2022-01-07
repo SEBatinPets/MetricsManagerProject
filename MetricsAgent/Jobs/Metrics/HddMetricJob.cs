@@ -28,7 +28,6 @@ namespace MetricsAgent.Jobs.Metrics
             //узнаём свободное место
             long hddCounter = new DriveInfo(path).TotalFreeSpace;
 
-            //var hddAvailableBytes = hddCounter;
             var time = TimeSpan.FromSeconds(DateTimeOffset.UtcNow.ToUnixTimeSeconds());
             repository.Create(new HddMetric { Time = time, Value = hddCounter });
 

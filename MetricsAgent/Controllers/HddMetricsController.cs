@@ -34,7 +34,7 @@ namespace MetricsAgent.Controllers
             [FromRoute] TimeSpan fromTime,
             [FromRoute] TimeSpan toTime)
         {
-            logger.LogInformation($"Запрос метрик с {fromTime} по {toTime}");
+            logger.LogInformation($"Запрос метрик ПЗУ с {fromTime} по {toTime}");
 
             GetHddMetricsResponse result = new GetHddMetricsResponse
             {
@@ -48,7 +48,7 @@ namespace MetricsAgent.Controllers
                 result.Metrics.Add(mapper.Map<HddMetricDto>(metric));
             }
 
-            logger.LogInformation($"Отдано {result.Metrics.Count}");
+            logger.LogInformation($"Отдано метрик ПЗУ {result.Metrics.Count}");
 
             return Ok(JsonSerializer.Serialize(result));
         }
