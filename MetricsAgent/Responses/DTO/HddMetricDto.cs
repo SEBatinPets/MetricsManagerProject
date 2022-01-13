@@ -9,6 +9,6 @@ namespace MetricsAgent.Responses.DTO
     {
         public int Id { get; set; }
         public long Value { get; set; }
-        public TimeSpan Time { get; set; }
+        public int Time { get; set; }
     }
 }

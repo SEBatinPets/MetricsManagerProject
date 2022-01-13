@@ -12,9 +12,18 @@ namespace MetricsAgent.Infrastructure.Mapper
     {
         public MapperProfile()
         {
-            CreateMap<CpuMetric, CpuMetricDto>();
-            CreateMap<HddMetric, HddMetricDto>();
-            CreateMap<RamMetric, RamMetricDto>();
+            CreateMap<CpuMetric, CpuMetricDto>().ForMember(destinationMember => 
+                destinationMember.Time, memberOptions => 
+                    memberOptions.MapFrom(sourceMember => 
+                        sourceMember.Time.TotalSeconds));
+            CreateMap<HddMetric, HddMetricDto>().ForMember(destinationMember =>
+                destinationMember.Time, memberOptions =>
+                    memberOptions.MapFrom(sourceMember =>
+                        sourceMember.Time.TotalSeconds));
+            CreateMap<RamMetric, RamMetricDto>().ForMember(destinationMember =>
+                destinationMember.Time, memberOptions =>
+                    memberOptions.MapFrom(sourceMember =>
+                        sourceMember.Time.TotalSeconds));
         }
     }
 }
